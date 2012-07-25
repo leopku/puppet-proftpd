@@ -1,4 +1,4 @@
-puppet-proftp
+puppet-proftpd
 =============
 
-Proftp moudel for puppet
+Proftpd moudel for puppet

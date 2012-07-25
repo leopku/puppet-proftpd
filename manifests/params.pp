@@ -1,27 +1,27 @@
-# Class: foo::params
+# Class: proftpd::params
 #
-# This class defines default parameters used by the main module class foo
+# This class defines default parameters used by the main module class proftpd
 # Operating Systems differences in names and paths are addressed here
 #
 # == Variables
 #
-# Refer to foo class for the variables defined here.
+# Refer to proftpd class for the variables defined here.
 #
 # == Usage
 #
 # This class is not intended to be used directly.
 # It may be imported or inherited by other classes
 #
-class foo::params {
+class proftpd::params {
 
   ### Application related parameters
 
   $package = $::operatingsystem ? {
-    default => 'foo',
+    default => 'proftpd',
   }
 
   $service = $::operatingsystem ? {
-    default => 'foo',
+    default => 'proftpd',
   }
 
   $service_status = $::operatingsystem ? {
@@ -29,7 +29,7 @@ class foo::params {
   }
 
   $process = $::operatingsystem ? {
-    default => 'foo',
+    default => 'proftpd',
   }
 
   $process_args = $::operatingsystem ? {
@@ -37,19 +37,19 @@ class foo::params {
   }
 
   $process_user = $::operatingsystem ? {
-    default => 'foo',
+    default => 'ftp',
   }
 
   $config_dir = $::operatingsystem ? {
-    default => '/etc/foo',
+    default => '/etc/',
   }
 
   $config_file = $::operatingsystem ? {
-    default => '/etc/foo/foo.conf',
+    default => '/etc/proftpd.conf',
   }
 
   $config_file_mode = $::operatingsystem ? {
-    default => '0644',
+    default => '0640',
   }
 
   $config_file_owner = $::operatingsystem ? {
@@ -61,27 +61,27 @@ class foo::params {
   }
 
   $config_file_init = $::operatingsystem ? {
-    /(?i:Debian|Ubuntu|Mint)/ => '/etc/default/foo',
-    default                   => '/etc/sysconfig/foo',
+    /(?i:Debian|Ubuntu|Mint)/ => '/etc/default/proftpd',
+    default                   => '/etc/sysconfig/proftpd',
   }
 
   $pid_file = $::operatingsystem ? {
-    default => '/var/run/foo.pid',
+    default => '/var/run/proftpd.pid',
   }
 
   $data_dir = $::operatingsystem ? {
-    default => '/etc/foo',
+    default => '/etc/proftpd',
   }
 
   $log_dir = $::operatingsystem ? {
-    default => '/var/log/foo',
+    default => '/var/log/proftpd',
   }
 
   $log_file = $::operatingsystem ? {
-    default => '/var/log/foo/foo.log',
+    default => '/var/log/proftpd/proftpd.log',
   }
 
-  $port = '42'
+  $port = '21'
   $protocol = 'tcp'
 
   # General Settings
