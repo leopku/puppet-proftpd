@@ -1,6 +1,6 @@
-# = Class: foo
+# = Class: proftpd
 #
-# This is the main foo class
+# This is the main proftpd class
 #
 #
 # == Parameters
@@ -10,38 +10,38 @@
 #
 # [*my_class*]
 #   Name of a custom class to autoload to manage module's customizations
-#   If defined, foo class will automatically "include $my_class"
-#   Can be defined also by the (top scope) variable $foo_myclass
+#   If defined, proftpd class will automatically "include $my_class"
+#   Can be defined also by the (top scope) variable $proftpd_myclass
 #
 # [*source*]
 #   Sets the content of source parameter for main configuration file
-#   If defined, foo main config file will have the param: source => $source
-#   Can be defined also by the (top scope) variable $foo_source
+#   If defined, proftpd main config file will have the param: source => $source
+#   Can be defined also by the (top scope) variable $proftpd_source
 #
 # [*source_dir*]
-#   If defined, the whole foo configuration directory content is retrieved
+#   If defined, the whole proftpd configuration directory content is retrieved
 #   recursively from the specified source
 #   (source => $source_dir , recurse => true)
-#   Can be defined also by the (top scope) variable $foo_source_dir
+#   Can be defined also by the (top scope) variable $proftpd_source_dir
 #
 # [*source_dir_purge*]
 #   If set to true (default false) the existing configuration directory is
 #   mirrored with the content retrieved from source_dir
 #   (source => $source_dir , recurse => true , purge => true)
-#   Can be defined also by the (top scope) variable $foo_source_dir_purge
+#   Can be defined also by the (top scope) variable $proftpd_source_dir_purge
 #
 # [*template*]
 #   Sets the path to the template to use as content for main configuration file
-#   If defined, foo main config file has: content => content("$template")
+#   If defined, proftpd main config file has: content => content("$template")
 #   Note source and template parameters are mutually exclusive: don't use both
-#   Can be defined also by the (top scope) variable $foo_template
+#   Can be defined also by the (top scope) variable $proftpd_template
 #
 # [*options*]
 #   An hash of custom options to be used in templates for arbitrary settings.
-#   Can be defined also by the (top scope) variable $foo_options
+#   Can be defined also by the (top scope) variable $proftpd_options
 #
 # [*service_autorestart*]
-#   Automatically restarts the foo service when there is a change in
+#   Automatically restarts the proftpd service when there is a change in
 #   configuration files. Default: true, Set to false if you don't want to
 #   automatically restart the service.
 #
@@ -53,102 +53,102 @@
 #
 # [*absent*]
 #   Set to 'true' to remove package(s) installed by module
-#   Can be defined also by the (top scope) variable $foo_absent
+#   Can be defined also by the (top scope) variable $proftpd_absent
 #
 # [*disable*]
 #   Set to 'true' to disable service(s) managed by module
-#   Can be defined also by the (top scope) variable $foo_disable
+#   Can be defined also by the (top scope) variable $proftpd_disable
 #
 # [*disableboot*]
 #   Set to 'true' to disable service(s) at boot, without checks if it's running
 #   Use this when the service is managed by a tool like a cluster software
-#   Can be defined also by the (top scope) variable $foo_disableboot
+#   Can be defined also by the (top scope) variable $proftpd_disableboot
 #
 # [*monitor*]
 #   Set to 'true' to enable monitoring of the services provided by the module
-#   Can be defined also by the (top scope) variables $foo_monitor
+#   Can be defined also by the (top scope) variables $proftpd_monitor
 #   and $monitor
 #
 # [*monitor_tool*]
 #   Define which monitor tools (ad defined in Example42 monitor module)
-#   you want to use for foo checks
-#   Can be defined also by the (top scope) variables $foo_monitor_tool
+#   you want to use for proftpd checks
+#   Can be defined also by the (top scope) variables $proftpd_monitor_tool
 #   and $monitor_tool
 #
 # [*monitor_target*]
 #   The Ip address or hostname to use as a target for monitoring tools.
 #   Default is the fact $ipaddress
-#   Can be defined also by the (top scope) variables $foo_monitor_target
+#   Can be defined also by the (top scope) variables $proftpd_monitor_target
 #   and $monitor_target
 #
 # [*puppi*]
 #   Set to 'true' to enable creation of module data files that are used by puppi
-#   Can be defined also by the (top scope) variables $foo_puppi and $puppi
+#   Can be defined also by the (top scope) variables $proftpd_puppi and $puppi
 #
 # [*puppi_helper*]
 #   Specify the helper to use for puppi commands. The default for this module
 #   is specified in params.pp and is generally a good choice.
 #   You can customize the output of puppi commands for this module using another
 #   puppi helper. Use the define puppi::helper to create a new custom helper
-#   Can be defined also by the (top scope) variables $foo_puppi_helper
+#   Can be defined also by the (top scope) variables $proftpd_puppi_helper
 #   and $puppi_helper
 #
 # [*firewall*]
 #   Set to 'true' to enable firewalling of the services provided by the module
-#   Can be defined also by the (top scope) variables $foo_firewall
+#   Can be defined also by the (top scope) variables $proftpd_firewall
 #   and $firewall
 #
 # [*firewall_tool*]
 #   Define which firewall tool(s) (ad defined in Example42 firewall module)
-#   you want to use to open firewall for foo port(s)
-#   Can be defined also by the (top scope) variables $foo_firewall_tool
+#   you want to use to open firewall for proftpd port(s)
+#   Can be defined also by the (top scope) variables $proftpd_firewall_tool
 #   and $firewall_tool
 #
 # [*firewall_src*]
-#   Define which source ip/net allow for firewalling foo. Default: 0.0.0.0/0
-#   Can be defined also by the (top scope) variables $foo_firewall_src
+#   Define which source ip/net allow for firewalling proftpd. Default: 0.0.0.0/0
+#   Can be defined also by the (top scope) variables $proftpd_firewall_src
 #   and $firewall_src
 #
 # [*firewall_dst*]
 #   Define which destination ip to use for firewalling. Default: $ipaddress
-#   Can be defined also by the (top scope) variables $foo_firewall_dst
+#   Can be defined also by the (top scope) variables $proftpd_firewall_dst
 #   and $firewall_dst
 #
 # [*debug*]
 #   Set to 'true' to enable modules debugging
-#   Can be defined also by the (top scope) variables $foo_debug and $debug
+#   Can be defined also by the (top scope) variables $proftpd_debug and $debug
 #
 # [*audit_only*]
 #   Set to 'true' if you don't intend to override existing configuration files
 #   and want to audit the difference between existing files and the ones
 #   managed by Puppet.
-#   Can be defined also by the (top scope) variables $foo_audit_only
+#   Can be defined also by the (top scope) variables $proftpd_audit_only
 #   and $audit_only
 #
-# Default class params - As defined in foo::params.
+# Default class params - As defined in proftpd::params.
 # Note that these variables are mostly defined and used in the module itself,
 # overriding the default values might not affected all the involved components.
 # Set and override them only if you know what you're doing.
 # Note also that you can't override/set them via top scope variables.
 #
 # [*package*]
-#   The name of foo package
+#   The name of proftpd package
 #
 # [*service*]
-#   The name of foo service
+#   The name of proftpd service
 #
 # [*service_status*]
-#   If the foo service init script supports status argument
+#   If the proftpd service init script supports status argument
 #
 # [*process*]
-#   The name of foo process
+#   The name of proftpd process
 #
 # [*process_args*]
-#   The name of foo arguments. Used by puppi and monitor.
-#   Used only in case the foo process name is generic (java, ruby...)
+#   The name of proftpd arguments. Used by puppi and monitor.
+#   Used only in case the proftpd process name is generic (java, ruby...)
 #
 # [*process_user*]
-#   The name of the user foo runs with. Used by puppi and monitor.
+#   The name of the user proftpd runs with. Used by puppi and monitor.
 #
 # [*config_dir*]
 #   Main configuration directory. Used by puppi
@@ -184,19 +184,19 @@
 #   The listening port, if any, of the service.
 #   This is used by monitor, firewall and puppi (optional) components
 #   Note: This doesn't necessarily affect the service configuration file
-#   Can be defined also by the (top scope) variable $foo_port
+#   Can be defined also by the (top scope) variable $proftpd_port
 #
 # [*protocol*]
 #   The protocol used by the the service.
 #   This is used by monitor, firewall and puppi (optional) components
-#   Can be defined also by the (top scope) variable $foo_protocol
+#   Can be defined also by the (top scope) variable $proftpd_protocol
 #
 #
 # == Examples
 #
 # You can use this class in 2 ways:
-# - Set variables (at top scope level on in a ENC) and "include foo"
-# - Call foo as a parametrized class
+# - Set variables (at top scope level on in a ENC) and "include proftpd"
+# - Call proftpd as a parametrized class
 #
 # See README for details.
 #
@@ -204,7 +204,7 @@
 # == Author
 #   Alessandro Franceschi <al@lab42.it/>
 #
-class foo (
+class proftpd (
   $my_class            = params_lookup( 'my_class' ),
   $source              = params_lookup( 'source' ),
   $source_dir          = params_lookup( 'source_dir' ),
@@ -245,7 +245,7 @@ class foo (
   $log_file            = params_lookup( 'log_file' ),
   $port                = params_lookup( 'port' ),
   $protocol            = params_lookup( 'protocol' )
-  ) inherits foo::params {
+  ) inherits proftpd::params {
 
   $bool_source_dir_purge=any2bool($source_dir_purge)
   $bool_service_autorestart=any2bool($service_autorestart)
@@ -259,178 +259,178 @@ class foo (
   $bool_audit_only=any2bool($audit_only)
 
   ### Definition of some variables used in the module
-  $manage_package = $foo::bool_absent ? {
+  $manage_package = $proftpd::bool_absent ? {
     true  => 'absent',
-    false => $foo::version,
+    false => $proftpd::version,
   }
 
-  $manage_service_enable = $foo::bool_disableboot ? {
+  $manage_service_enable = $proftpd::bool_disableboot ? {
     true    => false,
-    default => $foo::bool_disable ? {
+    default => $proftpd::bool_disable ? {
       true    => false,
-      default => $foo::bool_absent ? {
+      default => $proftpd::bool_absent ? {
         true  => false,
         false => true,
       },
     },
   }
 
-  $manage_service_ensure = $foo::bool_disable ? {
+  $manage_service_ensure = $proftpd::bool_disable ? {
     true    => 'stopped',
-    default =>  $foo::bool_absent ? {
+    default =>  $proftpd::bool_absent ? {
       true    => 'stopped',
       default => 'running',
     },
   }
 
-  $manage_service_autorestart = $foo::bool_service_autorestart ? {
-    true    => Service[foo],
+  $manage_service_autorestart = $proftpd::bool_service_autorestart ? {
+    true    => Service[proftpd],
     false   => undef,
   }
 
-  $manage_file = $foo::bool_absent ? {
+  $manage_file = $proftpd::bool_absent ? {
     true    => 'absent',
     default => 'present',
   }
 
-  if $foo::bool_absent == true
-  or $foo::bool_disable == true
-  or $foo::bool_disableboot == true {
+  if $proftpd::bool_absent == true
+  or $proftpd::bool_disable == true
+  or $proftpd::bool_disableboot == true {
     $manage_monitor = false
   } else {
     $manage_monitor = true
   }
 
-  if $foo::bool_absent == true
-  or $foo::bool_disable == true {
+  if $proftpd::bool_absent == true
+  or $proftpd::bool_disable == true {
     $manage_firewall = false
   } else {
     $manage_firewall = true
   }
 
-  $manage_audit = $foo::bool_audit_only ? {
+  $manage_audit = $proftpd::bool_audit_only ? {
     true  => 'all',
     false => undef,
   }
 
-  $manage_file_replace = $foo::bool_audit_only ? {
+  $manage_file_replace = $proftpd::bool_audit_only ? {
     true  => false,
     false => true,
   }
 
-  $manage_file_source = $foo::source ? {
+  $manage_file_source = $proftpd::source ? {
     ''        => undef,
-    default   => $foo::source,
+    default   => $proftpd::source,
   }
 
-  $manage_file_content = $foo::template ? {
+  $manage_file_content = $proftpd::template ? {
     ''        => undef,
-    default   => template($foo::template),
+    default   => template($proftpd::template),
   }
 
   ### Managed resources
-  package { 'foo':
-    ensure => $foo::manage_package,
-    name   => $foo::package,
+  package { 'proftpd':
+    ensure => $proftpd::manage_package,
+    name   => $proftpd::package,
   }
 
-  service { 'foo':
-    ensure     => $foo::manage_service_ensure,
-    name       => $foo::service,
-    enable     => $foo::manage_service_enable,
-    hasstatus  => $foo::service_status,
-    pattern    => $foo::process,
-    require    => Package['foo'],
+  service { 'proftpd':
+    ensure     => $proftpd::manage_service_ensure,
+    name       => $proftpd::service,
+    enable     => $proftpd::manage_service_enable,
+    hasstatus  => $proftpd::service_status,
+    pattern    => $proftpd::process,
+    require    => Package['proftpd'],
   }
 
-  file { 'foo.conf':
-    ensure  => $foo::manage_file,
-    path    => $foo::config_file,
-    mode    => $foo::config_file_mode,
-    owner   => $foo::config_file_owner,
-    group   => $foo::config_file_group,
-    require => Package['foo'],
-    notify  => $foo::manage_service_autorestart,
-    source  => $foo::manage_file_source,
-    content => $foo::manage_file_content,
-    replace => $foo::manage_file_replace,
-    audit   => $foo::manage_audit,
+  file { 'proftpd.conf':
+    ensure  => $proftpd::manage_file,
+    path    => $proftpd::config_file,
+    mode    => $proftpd::config_file_mode,
+    owner   => $proftpd::config_file_owner,
+    group   => $proftpd::config_file_group,
+    require => Package['proftpd'],
+    notify  => $proftpd::manage_service_autorestart,
+    source  => $proftpd::manage_file_source,
+    content => $proftpd::manage_file_content,
+    replace => $proftpd::manage_file_replace,
+    audit   => $proftpd::manage_audit,
   }
 
-  # The whole foo configuration directory can be recursively overriden
-  if $foo::source_dir {
-    file { 'foo.dir':
+  # The whole proftpd configuration directory can be recursively overriden
+  if $proftpd::source_dir {
+    file { 'proftpd.dir':
       ensure  => directory,
-      path    => $foo::config_dir,
-      require => Package['foo'],
-      notify  => $foo::manage_service_autorestart,
-      source  => $foo::source_dir,
+      path    => $proftpd::config_dir,
+      require => Package['proftpd'],
+      notify  => $proftpd::manage_service_autorestart,
+      source  => $proftpd::source_dir,
       recurse => true,
-      purge   => $foo::source_dir_purge,
-      replace => $foo::manage_file_replace,
-      audit   => $foo::manage_audit,
+      purge   => $proftpd::source_dir_purge,
+      replace => $proftpd::manage_file_replace,
+      audit   => $proftpd::manage_audit,
     }
   }
 
 
   ### Include custom class if $my_class is set
-  if $foo::my_class {
-    include $foo::my_class
+  if $proftpd::my_class {
+    include $proftpd::my_class
   }
 
 
   ### Provide puppi data, if enabled ( puppi => true )
-  if $foo::bool_puppi == true {
+  if $proftpd::bool_puppi == true {
     $classvars=get_class_args()
-    puppi::ze { 'foo':
-      ensure    => $foo::manage_file,
+    puppi::ze { 'proftpd':
+      ensure    => $proftpd::manage_file,
       variables => $classvars,
-      helper    => $foo::puppi_helper,
+      helper    => $proftpd::puppi_helper,
     }
   }
 
 
   ### Service monitoring, if enabled ( monitor => true )
-  if $foo::bool_monitor == true {
-    monitor::port { "foo_${foo::protocol}_${foo::port}":
-      protocol => $foo::protocol,
-      port     => $foo::port,
-      target   => $foo::monitor_target,
-      tool     => $foo::monitor_tool,
-      enable   => $foo::manage_monitor,
+  if $proftpd::bool_monitor == true {
+    monitor::port { "proftpd_${proftpd::protocol}_${proftpd::port}":
+      protocol => $proftpd::protocol,
+      port     => $proftpd::port,
+      target   => $proftpd::monitor_target,
+      tool     => $proftpd::monitor_tool,
+      enable   => $proftpd::manage_monitor,
     }
-    monitor::process { 'foo_process':
-      process  => $foo::process,
-      service  => $foo::service,
-      pidfile  => $foo::pid_file,
-      user     => $foo::process_user,
-      argument => $foo::process_args,
-      tool     => $foo::monitor_tool,
-      enable   => $foo::manage_monitor,
+    monitor::process { 'proftpd_process':
+      process  => $proftpd::process,
+      service  => $proftpd::service,
+      pidfile  => $proftpd::pid_file,
+      user     => $proftpd::process_user,
+      argument => $proftpd::process_args,
+      tool     => $proftpd::monitor_tool,
+      enable   => $proftpd::manage_monitor,
     }
   }
 
 
   ### Firewall management, if enabled ( firewall => true )
-  if $foo::bool_firewall == true {
-    firewall { "foo_${foo::protocol}_${foo::port}":
-      source      => $foo::firewall_src,
-      destination => $foo::firewall_dst,
-      protocol    => $foo::protocol,
-      port        => $foo::port,
+  if $proftpd::bool_firewall == true {
+    firewall { "proftpd_${proftpd::protocol}_${proftpd::port}":
+      source      => $proftpd::firewall_src,
+      destination => $proftpd::firewall_dst,
+      protocol    => $proftpd::protocol,
+      port        => $proftpd::port,
       action      => 'allow',
       direction   => 'input',
-      tool        => $foo::firewall_tool,
-      enable      => $foo::manage_firewall,
+      tool        => $proftpd::firewall_tool,
+      enable      => $proftpd::manage_firewall,
     }
   }
 
 
   ### Debugging, if enabled ( debug => true )
-  if $foo::bool_debug == true {
-    file { 'debug_foo':
-      ensure  => $foo::manage_file,
-      path    => "${settings::vardir}/debug-foo",
+  if $proftpd::bool_debug == true {
+    file { 'debug_proftpd':
+      ensure  => $proftpd::manage_file,
+      path    => "${settings::vardir}/debug-proftpd",
       mode    => '0640',
       owner   => 'root',
       group   => 'root',

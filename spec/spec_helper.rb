@@ -8,7 +8,7 @@ RSpec.configure do |c|
   c.before :each do
     # Create a temporary puppet confdir area and temporary site.pp so
     # when rspec-puppet runs we don't get a puppet error.
-    @puppetdir = Dir.mktmpdir("foo")
+    @puppetdir = Dir.mktmpdir("proftpd")
     manifestdir = File.join(@puppetdir, "manifests")
     Dir.mkdir(manifestdir)
     FileUtils.touch(File.join(manifestdir, "site.pp"))
